@@ -1,0 +1,30 @@
+extends layout
+
+block title
+  title Modules List
+
+block head
+
+  <!-- chrome frame support -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <!-- fix orientation bugs -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link href="/css/structure.css" rel="stylesheet" type="text/css" />
+  <link href="/css/styles.css" rel="stylesheet" type="text/css" />
+
+  style
+    body { margin: 20px;}
+    a {color: #ddd;}
+    a:hover {color: #469ae6;}
+    li { margin-bottom: 5px;}
+
+block content
+  h1 Modules List
+
+  ul
+    each item in dirArray
+      li
+        a(href="modules/" + item) #{item}
+
