@@ -11,20 +11,23 @@ exports.index = function (req, res)
 
     fs.readdir(__dirname + '../../public/modules/', function (err, files)
     {
-        $dirArray = files;
-
-        indexSvn = $dirArray.indexOf('.svn');
-
-        if (indexSvn !== -1)
+        if (typeof files !== 'undefined')
         {
-            $dirArray.splice(indexSvn, 1);
-        }
+            $dirArray = files;
 
-        indexPhp = $dirArray.indexOf('index.php');
+            indexSvn = $dirArray.indexOf('.svn');
 
-        if (indexPhp !== -1)
-        {
-            $dirArray.splice(indexPhp, 1);
+            if (indexSvn !== -1)
+            {
+                $dirArray.splice(indexSvn, 1);
+            }
+
+            indexPhp = $dirArray.indexOf('index.php');
+
+            if (indexPhp !== -1)
+            {
+                $dirArray.splice(indexPhp, 1);
+            }
         }
 
         res.render('index',
